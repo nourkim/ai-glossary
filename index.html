@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>معجم مصطلحات الذكاء الاصطناعي | قاموس عربي تفاعلي شامل</title>
+<meta name="description" content="معجم عربي تفاعلي وشامل يضم أكثر من 130 مصطلحا في الذكاء الاصطناعي، مع الاسم بالإنجليزية ومقابله بالعربية وتعريف مبسط لكل مصطلح، مقسم حسب التصنيفات مع خاصية بحث فورية.">
+<meta name="keywords" content="مصطلحات الذكاء الاصطناعي, قاموس الذكاء الاصطناعي, تعلم الآلة, التعلم العميق, الشبكات العصبية, معجم عربي, AI Glossary Arabic">
+<meta name="author" content="المدونة المنوعة بالفائدة">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="معجم مصطلحات الذكاء الاصطناعي - قاموس عربي تفاعلي شامل">
+<meta property="og:description" content="أكثر من 130 مصطلحا في الذكاء الاصطناعي بالعربية والإنجليزية مع تعريف مبسط لكل مصطلح.">
+<meta property="og:locale" content="ar_AR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="معجم مصطلحات الذكاء الاصطناعي">
+<meta name="twitter:description" content="قاموس عربي تفاعلي شامل لأكثر من 130 مصطلحا في الذكاء الاصطناعي.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23140f2e'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-weight='800' font-size='46' fill='%238b6bff' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+
+<style>
+  :root{
+    --bg1:#0d0f1a; --bg2:#171233;
+    --card:rgba(255,255,255,0.045); --card-border:rgba(255,255,255,0.09); --card-hover:rgba(255,255,255,0.07);
+    --text:#ece9f7; --text-dim:#a7a3c4;
+    --accent:#8b6bff; --accent2:#22d3c9;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:radial-gradient(circle at 15% 0%, var(--bg2), var(--bg1) 60%);
+    color:var(--text);
+    line-height:1.8;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,32px);}
+
+  /* ===== Top nav ===== */
+  header.site-nav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(13,15,26,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--card-border);
+  }
+  header.site-nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px clamp(16px,4vw,32px);gap:14px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05em;text-decoration:none;}
+  .brand-badge{
+    width:34px;height:34px;border-radius:9px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;color:#0d0f1a;font-weight:900;font-size:.8em;
+  }
+  .nav-link{
+    font-size:.88em;color:var(--text-dim);text-decoration:none;padding:8px 14px;border-radius:99px;
+    border:1px solid transparent;transition:.2s all;white-space:nowrap;
+  }
+  .nav-link:hover{color:var(--text);border-color:var(--card-border);}
+
+  /* ===== Hero ===== */
+  .hero{padding:clamp(46px,8vw,84px) 0 clamp(30px,6vw,50px);}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.82em;letter-spacing:.06em;color:var(--accent2);
+    background:rgba(34,211,201,0.1);border:1px solid rgba(34,211,201,0.28);
+    padding:5px 14px;border-radius:99px;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2);}
+  h1.hero-title{
+    font-size:clamp(1.9em,5vw,3.1em);margin:0 0 16px 0;font-weight:800;line-height:1.3;
+    background:linear-gradient(90deg,#fff,#c9bcff 60%,var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  p.hero-sub{color:var(--text-dim);max-width:70ch;font-size:clamp(1em,2.2vw,1.15em);margin:0 0 26px 0;}
+
+  .hero-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
+  .stat-card{
+    background:var(--card);border:1px solid var(--card-border);border-radius:12px;
+    padding:14px 20px;min-width:120px;
+  }
+  .stat-card b{display:block;font-size:1.7em;font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat-card span{font-size:.82em;color:var(--text-dim);}
+
+  /* ===== How to use box ===== */
+  .howto{
+    background:var(--card);border:1px solid var(--card-border);border-radius:16px;
+    padding:22px 26px;margin-bottom:10px;
+  }
+  .howto h2{margin:0 0 10px 0;font-size:1.15em;display:flex;align-items:center;gap:8px;}
+  .howto ol{margin:0;padding-inline-start:22px;color:var(--text-dim);font-size:.95em;}
+  .howto li{margin-bottom:6px;}
+
+  /* ===== Controls (search + chips) ===== */
+  .controls{
+    position:sticky;top:65px;z-index:15;
+    background:linear-gradient(180deg, rgba(13,15,26,0.97) 78%, rgba(13,15,26,0));
+    padding:22px 0 18px 0;margin-top:26px;
+  }
+  .search-wrap{position:relative;margin-bottom:16px;}
+  input.search{
+    width:100%;padding:15px 50px 15px 18px;border-radius:12px;
+    background:rgba(255,255,255,0.05);border:1px solid var(--card-border);
+    color:var(--text);font-size:1.05em;outline:none;transition:.2s border-color,.2s background;
+    font-family:inherit;
+  }
+  input.search::placeholder{color:var(--text-dim);}
+  input.search:focus{border-color:var(--accent);background:rgba(139,107,255,0.06);}
+  .search-icon{
+    position:absolute;right:18px;top:50%;transform:translateY(-50%);
+    width:18px;height:18px;border:2px solid var(--text-dim);border-radius:50%;pointer-events:none;
+  }
+  .search-icon::after{content:"";position:absolute;width:2px;height:9px;background:var(--text-dim);right:-4px;bottom:-8px;transform:rotate(-45deg);}
+
+  .chips{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{
+    cursor:pointer;user-select:none;
+    padding:8px 16px;border-radius:99px;font-size:.85em;font-weight:600;
+    border:1px solid var(--card-border);color:var(--text-dim);
+    background:var(--card);transition:.18s all;white-space:nowrap;
+  }
+  .chip:hover{color:var(--text);border-color:var(--accent);}
+  .chip.active{background:linear-gradient(90deg,var(--accent),#6a4bd6);color:#fff;border-color:transparent;}
+
+  /* ===== Category sections ===== */
+  .category-section{margin-top:42px;scroll-margin-top:150px;}
+  .cat-heading{
+    display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  }
+  .cat-heading h2{font-size:1.4em;margin:0;font-weight:800;}
+  .cat-heading .cat-count{
+    font-size:.78em;color:var(--text-dim);background:var(--card);
+    border:1px solid var(--card-border);padding:3px 12px;border-radius:99px;
+  }
+  .cat-line{flex:1;height:1px;background:linear-gradient(90deg,var(--card-border),transparent);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+  .term-card{
+    background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+    padding:18px 20px;position:relative;overflow:hidden;transition:.2s background,.2s border-color;
+  }
+  .term-card:hover{background:var(--card-hover);border-color:rgba(139,107,255,0.35);}
+  .term-card::before{
+    content:"";position:absolute;top:0;right:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0;transition:.2s opacity;
+  }
+  .term-card:hover::before{opacity:1;}
+  .term-en{display:block;font-weight:800;font-size:1.08em;color:#fff;direction:ltr;text-align:right;unicode-bidi:isolate;margin-bottom:3px;}
+  .term-ar{display:block;color:var(--accent2);font-weight:700;font-size:1em;margin-bottom:10px;}
+  .term-def{margin:0;padding-top:10px;border-top:1px dashed var(--card-border);color:var(--text-dim);font-size:.93em;line-height:1.85;}
+
+  .empty-state{display:none;text-align:center;padding:50px 10px;color:var(--text-dim);}
+  .empty-state.show{display:block;}
+
+  /* ===== Footer ===== */
+  footer{margin-top:70px;border-top:1px solid var(--card-border);padding:34px 0 40px;}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;}
+  footer p{margin:0;color:var(--text-dim);font-size:.86em;}
+  footer a.footer-link{
+    color:var(--accent2);text-decoration:none;font-weight:600;
+  }
+  footer a.footer-link:hover{text-decoration:underline;}
+  .back-top{
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--text-dim);text-decoration:none;font-size:.85em;
+    border:1px solid var(--card-border);padding:8px 16px;border-radius:99px;transition:.2s all;
+  }
+  .back-top:hover{color:var(--text);border-color:var(--accent);}
+
+  @media (max-width:640px){
+    .grid{grid-template-columns:1fr;}
+    .controls{top:60px;}
+    .hero-stats{gap:8px;}
+    .stat-card{padding:10px 14px;min-width:96px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-badge">AI</span>
+      <span>معجم مصطلحات الذكاء الاصطناعي</span>
+    </a>
+    <a class="nav-link" href="https://djabwiss.blogspot.com/" target="_blank" rel="noopener">المدونة الرئيسية</a>
+  </div>
+</header>
+
+<div class="wrap" id="top">
+  <section class="hero">
+    <span class="eyebrow">قاموس عربي تفاعلي ومجاني</span>
+    <h1 class="hero-title">معجم مصطلحات الذكاء الاصطناعي</h1>
+    <p class="hero-sub">
+      مرجع عربي شامل يجمع أهم المصطلحات المستخدمة في عالم الذكاء الاصطناعي، من الأساسيات إلى المفاهيم المتقدمة.
+      كل مصطلح مذكور باسمه الإنجليزي الأصلي مع مقابله العربي الدقيق وتعريف مبسط وواضح، ليكون هذا المعجم نقطة انطلاقك
+      لفهم أي مقال أو فيديو أو نقاش تقني حول الذكاء الاصطناعي دون حاجة للبحث المتفرق في مصادر متعددة.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-card"><b id="stat-total">0</b><span>مصطلح</span></div>
+      <div class="stat-card"><b id="stat-cats">0</b><span>تصنيف رئيسي</span></div>
+      <div class="stat-card"><b>عربي / إنجليزي</b><span>لغتان معًا</span></div>
+    </div>
+
+    <div class="howto">
+      <h2>كيف تستخدم هذا المعجم؟</h2>
+      <ol>
+        <li>استخدم خانة البحث للعثور فورًا على أي مصطلح بالعربية أو الإنجليزية أو حتى داخل نص تعريفه.</li>
+        <li>أو اختر تصنيفًا من الشرائط أدناه للانتقال مباشرة إلى مجموعة مصطلحات مترابطة (مثل الشبكات العصبية أو النماذج التوليدية).</li>
+        <li>كل بطاقة مصطلح تعرض: الاسم الإنجليزي، المقابل العربي، ثم التعريف المبسط أسفلها مباشرة.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" class="search" id="search" placeholder="ابحث عن مصطلح... مثال: Prompt أو تعلم عميق أو Token">
+      <span class="search-icon"></span>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <main id="glossary-container"></main>
+
+  <div class="empty-state" id="empty-state">لا توجد نتائج مطابقة لبحثك.<br>جرب كلمة أخرى أو اختر تصنيفًا مختلفًا.</div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>
+      إعداد <a class="footer-link" href="https://djabwiss.blogspot.com/" target="_blank" rel="noopener">المدونة المنوعة بالفائدة</a>
+      &mdash; معجم مفتوح ومجاني لكل من يريد فهم مصطلحات الذكاء الاصطناعي بالعربية. آخر تحديث: 2026.
+    </p>
+    <a href="#top" class="back-top">العودة للأعلى ↑</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var DATA = [
+    {en:"Artificial Intelligence (AI)", ar:"الذكاء الاصطناعي", cat:"أساسيات", def:"مجال علمي يهدف إلى بناء أنظمة وبرامج حاسوبية قادرة على أداء مهام تتطلب عادة ذكاء بشريا, مثل الفهم والتعلم واتخاذ القرار."},
+    {en:"Machine Learning (ML)", ar:"تعلم الآلة", cat:"أساسيات", def:"فرع من الذكاء الاصطناعي يتعلم فيه الحاسوب من البيانات مباشرة دون أن تتم برمجته صراحة لكل حالة, بحيث تتحسن أداءه كلما زادت البيانات."},
+    {en:"Deep Learning", ar:"التعلم العميق", cat:"أساسيات", def:"فرع متقدم من تعلم الآلة يعتمد على شبكات عصبية متعددة الطبقات لاستخلاص أنماط معقدة من البيانات, وهو أساس معظم أدوات الذكاء الاصطناعي الحديثة."},
+    {en:"Algorithm", ar:"الخوارزمية", cat:"أساسيات", def:"مجموعة من الخطوات المنطقية المرتبة التي يتبعها الحاسوب لحل مشكلة معينة أو إنجاز مهمة محددة."},
+    {en:"Dataset", ar:"مجموعة البيانات", cat:"أساسيات", def:"مجموعة منظمة من البيانات (نصوص, صور, أرقام...) تستخدم لتدريب واختبار نماذج الذكاء الاصطناعي."},
+    {en:"Model", ar:"النموذج", cat:"أساسيات", def:"البرنامج الرياضي الناتج بعد تدريب خوارزمية على بيانات معينة, وهو ما يقوم فعليا بالتنبؤ أو توليد المخرجات."},
+    {en:"Training", ar:"التدريب", cat:"أساسيات", def:"عملية تغذية النموذج بكميات كبيرة من البيانات لتعديل معاييره الداخلية حتى يتعلم أداء المهمة المطلوبة بدقة."},
+    {en:"Inference", ar:"الاستدلال", cat:"أساسيات", def:"مرحلة استخدام النموذج بعد تدريبه لإعطاء نتائج أو إجابات فعلية على مدخلات جديدة لم يرها من قبل."},
+    {en:"Parameter", ar:"المعامل (البارامتر)", cat:"أساسيات", def:"قيمة رقمية داخل النموذج يتم ضبطها أثناء التدريب, وكلما زاد عدد المعاملات زادت غالبا قدرة النموذج الاستيعابية."},
+    {en:"Weight", ar:"الوزن", cat:"أساسيات", def:"قيمة عددية تحدد مدى تأثير مدخل معين على قرار الشبكة العصبية, ويتم تعديلها تلقائيا أثناء التدريب."},
+    {en:"Bias (parameter)", ar:"الانحياز الحسابي", cat:"أساسيات", def:"قيمة إضافية تضاف إلى حسابات الخلية العصبية لمنح النموذج مرونة أكبر في التعلم, ولا تخلط مع التحيز الأخلاقي."},
+    {en:"Epoch", ar:"الدورة التدريبية", cat:"أساسيات", def:"مرور كامل واحد لجميع بيانات التدريب عبر النموذج مرة واحدة أثناء عملية التعلم."},
+    {en:"Batch", ar:"الدفعة", cat:"أساسيات", def:"مجموعة فرعية صغيرة من بيانات التدريب تتم معالجتها معا دفعة واحدة قبل تحديث معاملات النموذج."},
+    {en:"Overfitting", ar:"الإفراط في التخصيص", cat:"أساسيات", def:"حالة يحفظ فيها النموذج بيانات التدريب عن ظهر قلب فيؤدي جيدا عليها فقط, لكنه يفشل في التعميم على بيانات جديدة."},
+    {en:"Underfitting", ar:"نقص التخصيص", cat:"أساسيات", def:"حالة يفشل فيها النموذج في تعلم الأنماط الأساسية حتى من بيانات التدريب نفسها, غالبا بسبب بساطته الزائدة."},
+    {en:"Gradient Descent", ar:"الانحدار التدرجي", cat:"أساسيات", def:"خوارزمية رياضية تستخدم لتعديل معاملات النموذج تدريجيا بهدف تقليل نسبة الخطأ في تنبؤاته."},
+    {en:"Backpropagation", ar:"الانتشار العكسي", cat:"أساسيات", def:"آلية حسابية تستخدم لنشر قيمة الخطأ من مخرجات الشبكة العصبية عودة إلى طبقاتها لتحديث الأوزان وتحسين الأداء."},
+    {en:"Loss Function", ar:"دالة الخسارة", cat:"أساسيات", def:"معادلة رياضية تقيس مدى الفرق بين تنبؤ النموذج والإجابة الصحيحة, ويسعى التدريب دائما لتقليل قيمتها."},
+    {en:"Hyperparameter", ar:"المعامل الفائق", cat:"أساسيات", def:"إعداد يحدد يدويا قبل بدء التدريب (مثل سرعة التعلم) ولا يتم تعلمه من البيانات نفسها."},
+    {en:"Regularization", ar:"التنظيم", cat:"أساسيات", def:"مجموعة تقنيات تضاف أثناء التدريب لمنع النموذج من الإفراط في التخصيص وتحسين قدرته على التعميم."},
+
+    {en:"Supervised Learning", ar:"التعلم بإشراف", cat:"أنواع التعلم", def:"أسلوب تدريب يعتمد على بيانات مصنفة مسبقا (مدخل وإجابته الصحيحة) ليتعلم النموذج الربط بينهما."},
+    {en:"Unsupervised Learning", ar:"التعلم غير الموجه", cat:"أنواع التعلم", def:"أسلوب تدريب يعمل على بيانات غير مصنفة, حيث يكتشف النموذج الأنماط والتجمعات الخفية بنفسه."},
+    {en:"Reinforcement Learning (RL)", ar:"التعلم المعزز", cat:"أنواع التعلم", def:"أسلوب تدريب يتعلم فيه النموذج (الوكيل) عبر التجربة والخطأ, بحيث يكافأ على القرارات الجيدة ويعاقب على السيئة."},
+    {en:"Reinforcement Learning from Human Feedback (RLHF)", ar:"التعلم المعزز من تغذية بشرية راجعة", cat:"أنواع التعلم", def:"تقنية تستخدم لضبط النماذج اللغوية عبر تقييم بشري لجودة الإجابات, لجعل المخرجات أكثر أمانا وفائدة."},
+    {en:"Transfer Learning", ar:"التعلم النقلي", cat:"أنواع التعلم", def:"إعادة استخدام نموذج مدرب مسبقا على مهمة معينة كنقطة انطلاق لتدريبه على مهمة جديدة أسرع وبأداء أفضل."},
+    {en:"Fine-tuning", ar:"الضبط الدقيق", cat:"أنواع التعلم", def:"إعادة تدريب نموذج جاهز على بيانات متخصصة إضافية لتكييفه مع مهمة أو مجال محدد."},
+    {en:"Zero-shot Learning", ar:"التعلم بلا أمثلة", cat:"أنواع التعلم", def:"قدرة النموذج على تنفيذ مهمة لم يتدرب عليها مطلقا من قبل, معتمدا فقط على فهمه العام للغة أو المفاهيم."},
+    {en:"Few-shot Learning", ar:"التعلم بأمثلة قليلة", cat:"أنواع التعلم", def:"قدرة النموذج على تعلم أداء مهمة جديدة بعد رؤية عدد قليل جدا من الأمثلة التوضيحية فقط."},
+
+    {en:"Neural Network", ar:"الشبكة العصبية", cat:"الشبكات العصبية", def:"بنية حسابية مستوحاة من الدماغ البشري, تتكون من طبقات خلايا مترابطة تعالج البيانات وتتعلم الأنماط منها."},
+    {en:"Convolutional Neural Network (CNN)", ar:"الشبكة العصبية الالتفافية", cat:"الشبكات العصبية", def:"نوع من الشبكات العصبية متخصص في معالجة الصور, يعمل عبر فلاتر تكتشف الحواف والأنماط البصرية تدريجيا."},
+    {en:"Recurrent Neural Network (RNN)", ar:"الشبكة العصبية التكرارية", cat:"الشبكات العصبية", def:"نوع من الشبكات العصبية مصمم لمعالجة البيانات المتسلسلة كالنصوص والصوت, لأنه يحتفظ بذاكرة للمدخلات السابقة."},
+    {en:"LSTM (Long Short-Term Memory)", ar:"الذاكرة طويلة القصيرة المدى", cat:"الشبكات العصبية", def:"نوع متقدم من الشبكات التكرارية قادر على تذكر معلومات مهمة عبر تسلسلات طويلة وتجاهل غير المهم منها."},
+    {en:"Transformer", ar:"المحول (ترانسفورمر)", cat:"الشبكات العصبية", def:"بنية شبكة عصبية حديثة تعتمد على آلية الانتباه, وهي الأساس الذي بنيت عليه النماذج اللغوية الكبرى مثل GPT."},
+    {en:"Attention Mechanism", ar:"آلية الانتباه", cat:"الشبكات العصبية", def:"تقنية تسمح للنموذج بالتركيز على أكثر أجزاء المدخل أهمية عند معالجة كل كلمة, بدل التعامل مع النص ككل بوزن متساو."},
+
+    {en:"Large Language Model (LLM)", ar:"النموذج اللغوي الكبير", cat:"النماذج التوليدية", def:"نموذج ذكاء اصطناعي ضخم مدرب على كميات هائلة من النصوص, قادر على فهم اللغة الطبيعية وتوليدها بأسلوب بشري."},
+    {en:"Generative AI", ar:"الذكاء الاصطناعي التوليدي", cat:"النماذج التوليدية", def:"فئة من أدوات الذكاء الاصطناعي القادرة على إنشاء محتوى جديد (نص, صورة, صوت, فيديو) بدل الاكتفاء بتحليل محتوى موجود."},
+    {en:"GPT (Generative Pre-trained Transformer)", ar:"المحول التوليدي المدرب مسبقا", cat:"النماذج التوليدية", def:"عائلة من النماذج اللغوية الكبرى المبنية على بنية الترانسفورمر, مدربة مسبقا على نصوص ضخمة ثم مهيأة للمحادثة."},
+    {en:"Diffusion Model", ar:"نموذج الانتشار", cat:"النماذج التوليدية", def:"نوع من النماذج التوليدية يعمل بإضافة تشويش عشوائي إلى الصورة تدريجيا ثم تعلم إزالته, ويستخدم بكثرة في توليد الصور."},
+    {en:"GAN (Generative Adversarial Network)", ar:"الشبكة التوليدية التنافسية", cat:"النماذج التوليدية", def:"بنية تتكون من شبكتين تتنافسان: إحداهما تولد محتوى مزيفا والأخرى تحاول كشفه, مما يحسن جودة المخرجات تدريجيا."},
+    {en:"Diffusion / Text-to-Image", ar:"تحويل النص إلى صورة", cat:"النماذج التوليدية", def:"تقنية تنتج صورة كاملة انطلاقا من وصف نصي فقط, عبر نماذج توليدية مدربة على ملايين أزواج الصور والنصوص."},
+    {en:"Text-to-Video", ar:"تحويل النص إلى فيديو", cat:"النماذج التوليدية", def:"تقنية توليد مقاطع فيديو متحركة اعتمادا فقط على وصف نصي, مع محاكاة حركة الكاميرا والفيزياء الواقعية."},
+    {en:"Multimodal AI", ar:"الذكاء الاصطناعي متعدد الوسائط", cat:"النماذج التوليدية", def:"نموذج قادر على فهم أو توليد أكثر من نوع بيانات في آن واحد, كالنص والصورة والصوت معا."},
+    {en:"Deepfake", ar:"التزييف العميق", cat:"النماذج التوليدية", def:"محتوى مرئي أو صوتي مزيف بواقعية عالية باستخدام الذكاء الاصطناعي, يظهر أشخاصا يقولون أو يفعلون أمورا لم تحدث فعليا."},
+    {en:"Synthetic Data", ar:"البيانات الاصطناعية", cat:"النماذج التوليدية", def:"بيانات يتم توليدها اصطناعيا بواسطة خوارزميات بدل جمعها من العالم الحقيقي, وتستخدم لتدريب النماذج عند ندرة البيانات الحقيقية."},
+
+    {en:"Prompt", ar:"الموجه (البرومبت)", cat:"التفاعل مع النماذج", def:"النص أو التعليمة التي يكتبها المستخدم لطلب استجابة معينة من نموذج الذكاء الاصطناعي."},
+    {en:"Prompt Engineering", ar:"هندسة الموجهات", cat:"التفاعل مع النماذج", def:"فن وعلم صياغة الأوامر النصية بطريقة مدروسة للحصول على أفضل استجابة ممكنة من نماذج الذكاء الاصطناعي."},
+    {en:"Prompt Injection", ar:"حقن الأوامر", cat:"التفاعل مع النماذج", def:"محاولة خبيثة لخداع النموذج عبر تعليمات مخفية داخل المدخل بهدف تجاوز قواعده أو سرقة بيانات."},
+    {en:"Jailbreak", ar:"كسر القيود", cat:"التفاعل مع النماذج", def:"محاولة التحايل على أنظمة الأمان الخاصة بنموذج ذكاء اصطناعي لجعله يتجاوز سياساته المحددة."},
+    {en:"Context Window", ar:"نافذة السياق", cat:"التفاعل مع النماذج", def:"الحد الأقصى من النص (يقاس بالرموز) الذي يمكن للنموذج تذكره ومعالجته دفعة واحدة أثناء محادثة أو مهمة."},
+    {en:"Token", ar:"الرمز (التوكن)", cat:"التفاعل مع النماذج", def:"أصغر وحدة نصية يتعامل معها النموذج, قد تكون كلمة كاملة أو جزءا من كلمة أو حرفا واحدا."},
+    {en:"Tokenization", ar:"الترميز (تقطيع النص)", cat:"التفاعل مع النماذج", def:"عملية تقسيم النص إلى وحدات صغيرة (رموز) قبل إدخاله إلى النموذج ليتمكن من معالجته رياضيا."},
+    {en:"Hallucination", ar:"الهلوسة", cat:"التفاعل مع النماذج", def:"ظاهرة ينتج فيها النموذج معلومات تبدو منطقية لكنها غير صحيحة أو غير موجودة أصلا, بثقة تامة."},
+    {en:"Chatbot", ar:"روبوت المحادثة", cat:"التفاعل مع النماذج", def:"برنامج يحاكي المحادثة البشرية, يمكنه الرد على الأسئلة وتنفيذ مهام عبر واجهة نصية أو صوتية."},
+    {en:"AI Agent", ar:"الوكيل الذكي", cat:"التفاعل مع النماذج", def:"نظام ذكاء اصطناعي قادر على اتخاذ قرارات وتنفيذ سلسلة من الخطوات والأدوات تلقائيا لتحقيق هدف محدد دون تدخل بشري مستمر."},
+    {en:"Guardrails", ar:"حواجز الأمان", cat:"التفاعل مع النماذج", def:"قواعد وضوابط تضاف حول النموذج لمنعه من إنتاج محتوى ضار أو الخروج عن الاستخدام المقصود."},
+
+    {en:"Natural Language Processing (NLP)", ar:"معالجة اللغة الطبيعية", cat:"اللغة والصوت", def:"فرع من الذكاء الاصطناعي يهتم بتمكين الحاسوب من فهم اللغة البشرية ومعالجتها وتحليلها."},
+    {en:"Natural Language Understanding (NLU)", ar:"فهم اللغة الطبيعية", cat:"اللغة والصوت", def:"جزء من معالجة اللغة الطبيعية يركز على استخراج المعنى والقصد من النص المكتوب أو المنطوق."},
+    {en:"Natural Language Generation (NLG)", ar:"توليد اللغة الطبيعية", cat:"اللغة والصوت", def:"جزء من معالجة اللغة الطبيعية يركز على إنتاج نصوص مفهومة وسلسة تشبه أسلوب الكتابة البشري."},
+    {en:"Sentiment Analysis", ar:"تحليل المشاعر", cat:"اللغة والصوت", def:"تقنية تحدد الطابع العاطفي لنص ما (إيجابي, سلبي, محايد), وتستخدم كثيرا في تحليل آراء العملاء."},
+    {en:"Machine Translation", ar:"الترجمة الآلية", cat:"اللغة والصوت", def:"استخدام الذكاء الاصطناعي لترجمة النصوص تلقائيا من لغة إلى أخرى دون تدخل بشري مباشر."},
+    {en:"Speech Recognition", ar:"التعرف على الكلام", cat:"اللغة والصوت", def:"تقنية تحول الكلام المنطوق إلى نص مكتوب باستخدام نماذج ذكاء اصطناعي مدربة على الصوت."},
+    {en:"Text-to-Speech (TTS)", ar:"تحويل النص إلى كلام", cat:"اللغة والصوت", def:"تقنية تحول النص المكتوب إلى صوت منطوق يحاكي الصوت البشري الطبيعي."},
+    {en:"Optical Character Recognition (OCR)", ar:"التعرف الضوئي على الحروف", cat:"اللغة والصوت", def:"تقنية تحول النصوص الموجودة داخل الصور أو المستندات الممسوحة ضوئيا إلى نص رقمي قابل للتحرير."},
+
+    {en:"Computer Vision", ar:"الرؤية الحاسوبية", cat:"الرؤية والصور", def:"فرع من الذكاء الاصطناعي يمكن الحاسوب من رؤية وفهم محتوى الصور ومقاطع الفيديو وتحليلها."},
+    {en:"Image Classification", ar:"تصنيف الصور", cat:"الرؤية والصور", def:"مهمة تحديد الفئة أو التسمية التي تنتمي إليها صورة كاملة, مثل التمييز بين صورة قطة وصورة كلب."},
+    {en:"Object Detection", ar:"كشف الأجسام", cat:"الرؤية والصور", def:"مهمة تحديد مواقع أجسام متعددة داخل صورة واحدة ووضع إطار حول كل جسم مع تصنيفه."},
+    {en:"Facial Recognition", ar:"التعرف على الوجوه", cat:"الرؤية والصور", def:"تقنية تحلل ملامح الوجه في صورة أو فيديو لتحديد هوية الشخص أو مطابقته بقاعدة بيانات."},
+
+    {en:"Embedding", ar:"التضمين", cat:"مفاهيم متقدمة", def:"طريقة لتمثيل الكلمات أو الجمل أو الصور كمتجهات رقمية بحيث تكون العناصر متشابهة المعنى قريبة من بعضها رياضيا."},
+    {en:"Vector", ar:"المتجه", cat:"مفاهيم متقدمة", def:"مصفوفة من الأرقام تمثل بيانات (نص أو صورة) بشكل رياضي يمكن للحاسوب معالجته ومقارنته."},
+    {en:"Vector Database", ar:"قاعدة البيانات المتجهية", cat:"مفاهيم متقدمة", def:"نوع خاص من قواعد البيانات مصمم لتخزين المتجهات والبحث فيها بالتشابه بدل التطابق الحرفي."},
+    {en:"Semantic Search", ar:"البحث الدلالي", cat:"مفاهيم متقدمة", def:"بحث يعتمد على المعنى والقصد من الاستعلام بدل الاكتفاء بمطابقة الكلمات الحرفية."},
+    {en:"Retrieval-Augmented Generation (RAG)", ar:"التوليد المعزز بالاسترجاع", cat:"مفاهيم متقدمة", def:"تقنية تجمع بين البحث عن معلومات من مصدر خارجي موثوق وتوليد إجابة نصية بناء عليها, لتقليل الهلوسة وزيادة الدقة."},
+    {en:"Knowledge Graph", ar:"الرسم البياني المعرفي", cat:"مفاهيم متقدمة", def:"بنية تمثل الحقائق والعلاقات بين الكيانات (أشخاص, أماكن, مفاهيم) على شكل شبكة مترابطة يمكن للآلة الاستدلال منها."},
+    {en:"Feature Extraction", ar:"استخراج السمات", cat:"مفاهيم متقدمة", def:"عملية تحديد أهم الخصائص أو الأنماط داخل البيانات الخام لتسهيل تعلم النموذج منها."},
+    {en:"Clustering", ar:"التجميع العنقودي", cat:"مفاهيم متقدمة", def:"تقنية تجمع البيانات المتشابهة تلقائيا في مجموعات (عناقيد) دون معرفة مسبقة بتصنيفاتها."},
+    {en:"Classification", ar:"التصنيف", cat:"مفاهيم متقدمة", def:"مهمة تعلم آلة تهدف إلى تحديد الفئة التي تنتمي إليها بيانات معينة من بين مجموعة فئات محددة مسبقا."},
+    {en:"Regression", ar:"الانحدار", cat:"مفاهيم متقدمة", def:"مهمة تعلم آلة تهدف إلى التنبؤ بقيمة رقمية مستمرة, مثل التنبؤ بسعر منزل بناء على مواصفاته."},
+    {en:"Anomaly Detection", ar:"كشف الشذوذ", cat:"مفاهيم متقدمة", def:"تقنية تكتشف تلقائيا البيانات أو السلوكيات غير الاعتيادية الخارجة عن النمط الطبيعي, وتستخدم في كشف الاحتيال مثلا."},
+    {en:"Decision Tree", ar:"شجرة القرار", cat:"مفاهيم متقدمة", def:"نموذج تعلم آلة بسيط يتخذ القرارات عبر سلسلة من الأسئلة المتفرعة على شكل شجرة, حتى الوصول إلى نتيجة نهائية."},
+    {en:"Random Forest", ar:"الغابة العشوائية", cat:"مفاهيم متقدمة", def:"خوارزمية تجمع نتائج عدد كبير من أشجار القرار المختلفة معا للوصول إلى تنبؤ أكثر دقة وثباتا."},
+    {en:"Support Vector Machine (SVM)", ar:"آلة المتجهات الداعمة", cat:"مفاهيم متقدمة", def:"خوارزمية تعلم آلة تفصل البيانات إلى فئات مختلفة عبر رسم أفضل حد فاصل ممكن بينها."},
+    {en:"Data Augmentation", ar:"تعزيز البيانات", cat:"مفاهيم متقدمة", def:"تقنية تنشئ نسخا معدلة قليلا من بيانات موجودة (كتدوير صورة أو تغيير إضاءتها) لزيادة تنوع بيانات التدريب."},
+    {en:"AutoML", ar:"التعلم الآلي التلقائي", cat:"مفاهيم متقدمة", def:"أدوات تؤتمت عملية بناء نماذج تعلم الآلة واختيار أفضل إعداداتها دون الحاجة لخبرة برمجية عميقة."},
+    {en:"Edge AI", ar:"الذكاء الاصطناعي الطرفي", cat:"مفاهيم متقدمة", def:"تشغيل نماذج الذكاء الاصطناعي مباشرة على الجهاز المحلي (هاتف, كاميرا) بدل الاعتماد على خوادم سحابية بعيدة."},
+    {en:"Cloud AI", ar:"الذكاء الاصطناعي السحابي", cat:"مفاهيم متقدمة", def:"تشغيل نماذج ومهام الذكاء الاصطناعي على خوادم بعيدة عبر الإنترنت بدل جهاز المستخدم المحلي."},
+    {en:"API (Application Programming Interface)", ar:"واجهة برمجة التطبيقات", cat:"مفاهيم متقدمة", def:"جسر برمجي يسمح لبرنامج أو موقع بالتواصل مع نموذج ذكاء اصطناعي واستخدام خدماته برمجيا."},
+    {en:"Latency", ar:"زمن الاستجابة", cat:"مفاهيم متقدمة", def:"المدة الزمنية التي يستغرقها النموذج لإعطاء نتيجة بعد استلام طلب المستخدم."},
+
+    {en:"Artificial General Intelligence (AGI)", ar:"الذكاء الاصطناعي العام", cat:"الأخلاقيات والسلامة", def:"مستوى افتراضي من الذكاء الاصطناعي يمتلك قدرات معرفية شاملة تضاهي أو تتجاوز الإنسان في جميع المجالات, وما يزال قيد البحث."},
+    {en:"Turing Test", ar:"اختبار تورينغ", cat:"الأخلاقيات والسلامة", def:"اختبار افتراضي يقيس قدرة آلة على محاكاة محادثة بشرية إلى درجة يصعب فيها على الإنسان التفريق بينها وبين إنسان حقيقي."},
+    {en:"AI Bias", ar:"التحيز في الذكاء الاصطناعي", cat:"الأخلاقيات والسلامة", def:"انحراف غير عادل في تنبؤات النموذج تجاه فئة معينة, غالبا بسبب بيانات تدريب غير متوازنة أو منحازة."},
+    {en:"Fairness", ar:"العدالة الخوارزمية", cat:"الأخلاقيات والسلامة", def:"مبدأ يهدف إلى ضمان أن قرارات نماذج الذكاء الاصطناعي عادلة ومتساوية تجاه مختلف الفئات دون تمييز."},
+    {en:"Explainable AI (XAI)", ar:"الذكاء الاصطناعي القابل للتفسير", cat:"الأخلاقيات والسلامة", def:"مجموعة تقنيات تهدف إلى جعل قرارات النموذج مفهومة وقابلة للتفسير بدل أن تكون صندوقا أسود غامضا."},
+    {en:"AI Alignment", ar:"مواءمة الذكاء الاصطناعي", cat:"الأخلاقيات والسلامة", def:"مجال بحثي يهدف إلى ضمان أن أهداف وسلوك أنظمة الذكاء الاصطناعي متوافقة مع القيم والنوايا البشرية."},
+    {en:"AI Ethics", ar:"أخلاقيات الذكاء الاصطناعي", cat:"الأخلاقيات والسلامة", def:"مجموعة المبادئ والقيم التي توجه تطوير واستخدام أنظمة الذكاء الاصطناعي بشكل مسؤول وآمن للمجتمع."},
+    {en:"Foundation Model", ar:"النموذج الأساسي", cat:"أساسيات", def:"نموذج ضخم يُدرَّب على كميات هائلة ومتنوعة من البيانات، ليُستخدم بعد ذلك كقاعدة تُبنى عليها تطبيقات ونماذج متخصصة أخرى."},
+    {en:"Pretraining", ar:"التدريب المسبق", cat:"أساسيات", def:"المرحلة الأولى من تدريب نموذج ضخم على كمية كبيرة من البيانات العامة، قبل تخصيصه لاحقًا لمهمة معينة."},
+    {en:"Checkpoint", ar:"نقطة الحفظ", cat:"أساسيات", def:"نسخة محفوظة من حالة النموذج وأوزانه عند مرحلة معينة من التدريب، تُستخدم للاستئناف أو الاختبار أو النشر لاحقًا."},
+    {en:"GPU (Graphics Processing Unit)", ar:"وحدة معالجة الرسوميات", cat:"أساسيات", def:"معالج متخصص في تنفيذ آلاف العمليات الحسابية بالتوازي، وهو العتاد الأساسي الذي تُدرَّب عليه معظم نماذج الذكاء الاصطناعي الحديثة."},
+    {en:"Benchmark", ar:"معيار القياس", cat:"أساسيات", def:"مجموعة اختبارات ومعايير موحدة تُستخدم لمقارنة أداء نماذج الذكاء الاصطناعي المختلفة على مهام محددة بشكل موضوعي."},
+    {en:"Perplexity", ar:"معيار الحيرة", cat:"أساسيات", def:"مقياس رياضي يقيّم مدى «مفاجأة» النموذج اللغوي بالنص التالي، فكلما انخفضت القيمة كان النموذج أكثر ثقة ودقة في تنبؤاته."},
+
+    {en:"Self-Supervised Learning", ar:"التعلم الذاتي الإشراف", cat:"أنواع التعلم", def:"أسلوب تدريب يولّد فيه النموذج إشاراته التدريبية الخاصة من البيانات نفسها دون الحاجة لتصنيف بشري يدوي، كتخمين كلمة مخفية داخل جملة."},
+    {en:"Contrastive Learning", ar:"التعلم التبايني", cat:"أنواع التعلم", def:"أسلوب تدريب يتعلم فيه النموذج بمقارنة أزواج من الأمثلة المتشابهة والمختلفة، ليقرّب تمثيل المتشابه ويُبعد تمثيل المختلف."},
+    {en:"Federated Learning", ar:"التعلم الموزع", cat:"أنواع التعلم", def:"أسلوب تدريب يتم فيه تعليم النموذج على أجهزة متعددة موزّعة دون نقل البيانات الخام إلى خادم مركزي، حفاظًا على خصوصية المستخدمين."},
+    {en:"In-context Learning", ar:"التعلم من السياق", cat:"أنواع التعلم", def:"قدرة النموذج اللغوي على تعلّم أداء مهمة جديدة فقط من خلال الأمثلة الموجودة داخل الموجّه نفسه، دون إعادة تدريب أو تعديل أوزانه."},
+    {en:"Instruction Tuning", ar:"الضبط بالتعليمات", cat:"أنواع التعلم", def:"مرحلة تدريب إضافية يُعاد فيها ضبط النموذج على أمثلة من أوامر وتعليمات وإجاباتها الصحيحة، لجعله أكثر التزامًا بتنفيذ طلبات المستخدم."},
+
+    {en:"Encoder", ar:"المشفر", cat:"الشبكات العصبية", def:"جزء من الشبكة العصبية مهمته تحويل المُدخل الخام (نص أو صورة) إلى تمثيل رقمي مضغوط يحتفظ بالمعنى الجوهري له."},
+    {en:"Decoder", ar:"مفكك الترميز", cat:"الشبكات العصبية", def:"جزء من الشبكة العصبية مهمته تحويل التمثيل الرقمي المضغوط إلى مخرج نهائي مفهوم، كنص أو صورة."},
+    {en:"Autoencoder", ar:"المشفر التلقائي", cat:"الشبكات العصبية", def:"شبكة عصبية تتعلم ضغط البيانات إلى تمثيل مصغّر ثم إعادة بنائها بأقل خسارة ممكنة للمعلومات، وتُستخدم في تقليل الأبعاد وكشف الشذوذ."},
+    {en:"Mixture of Experts (MoE)", ar:"خليط الخبراء", cat:"الشبكات العصبية", def:"بنية تحتوي على عدة شبكات فرعية «خبيرة»، حيث يُفعَّل عدد قليل منها فقط لكل مُدخل، مما يزيد قدرة النموذج دون زيادة تكلفة الحساب بنفس النسبة."},
+
+    {en:"Variational Autoencoder (VAE)", ar:"المشفر التلقائي التبايني", cat:"النماذج التوليدية", def:"نوع من المشفرات التلقائية يتعلم توزيعًا احتماليًا للبيانات بدل تمثيل ثابت، مما يمكّنه من توليد عينات جديدة مشابهة للبيانات الأصلية."},
+    {en:"Style Transfer", ar:"نقل الأسلوب", cat:"النماذج التوليدية", def:"تقنية تطبّق الأسلوب الفني لصورة معينة (كلوحة رسم) على محتوى صورة أخرى، مع الحفاظ على تفاصيل المحتوى الأصلي."},
+    {en:"Inpainting", ar:"الترميم الذكي", cat:"النماذج التوليدية", def:"تقنية تولّد محتوى جديدًا متناسقًا لملء أو استبدال جزء محدد داخل صورة موجودة، كإزالة عنصر غير مرغوب فيه."},
+    {en:"Outpainting", ar:"التوسيع خارج الإطار", cat:"النماذج التوليدية", def:"تقنية تولّد محتوى جديدًا يمتد خارج حدود الصورة الأصلية، لتوسيع مشهدها بشكل متناسق ومنطقي."},
+    {en:"Upscaling", ar:"تحسين الدقة", cat:"النماذج التوليدية", def:"تقنية تستخدم الذكاء الاصطناعي لزيادة دقة ووضوح صورة أو فيديو منخفض الجودة دون فقدان تفاصيل مهمة."},
+
+    {en:"System Prompt", ar:"الموجه النظامي", cat:"التفاعل مع النماذج", def:"تعليمة أساسية تُعطى للنموذج مسبقًا لتحديد شخصيته وأسلوبه وحدوده قبل بدء المحادثة مع المستخدم."},
+    {en:"Chain-of-Thought", ar:"سلسلة التفكير", cat:"التفاعل مع النماذج", def:"أسلوب صياغة يُطلب فيه من النموذج عرض خطوات تفكيره المنطقية تباعًا قبل الوصول إلى الإجابة النهائية، مما يحسّن دقة المهام المعقدة."},
+    {en:"Temperature (sampling)", ar:"درجة العشوائية", cat:"التفاعل مع النماذج", def:"معامل يتحكم في مدى عشوائية أو إبداعية إجابات النموذج، فكلما ارتفعت القيمة زاد التنوع، وكلما انخفضت زادت القابلية للتنبؤ."},
+    {en:"Top-p / Top-k Sampling", ar:"أخذ العينات المحدود", cat:"التفاعل مع النماذج", def:"طرق تتحكم في نطاق الكلمات المحتملة التي يختار منها النموذج كلمته التالية، للموازنة بين التنوع والدقة في التوليد."},
+    {en:"Function Calling", ar:"استدعاء الأدوات", cat:"التفاعل مع النماذج", def:"قدرة النموذج على تحديد أن مهمة معينة تتطلب استخدام أداة أو برنامج خارجي (كحاسبة أو بحث ويب)، وتنفيذ ذلك تلقائيًا أثناء الرد."},
+    {en:"Multi-Agent System", ar:"نظام متعدد الوكلاء", cat:"التفاعل مع النماذج", def:"نظام يضم عدة وكلاء ذكاء اصطناعي يتعاونون أو يتفاوضون فيما بينهم لإنجاز مهمة معقدة يصعب على وكيل واحد إتمامها بمفرده."},
+
+    {en:"Voice Cloning", ar:"استنساخ الصوت", cat:"اللغة والصوت", def:"تقنية تحلل عينة صوتية قصيرة لشخص ما، ثم تولّد كلامًا جديدًا بنفس نبرة وخصائص ذلك الصوت."},
+
+    {en:"Image Segmentation", ar:"تجزئة الصورة", cat:"الرؤية والصور", def:"مهمة تقسيم الصورة إلى مناطق دقيقة حسب حدود كل جسم فيها، بدل الاكتفاء برسم إطار تقريبي حوله كما في كشف الأجسام."},
+    {en:"Pose Estimation", ar:"تقدير وضعية الجسم", cat:"الرؤية والصور", def:"تقنية تحدد مواقع مفاصل وأطراف جسم الإنسان داخل صورة أو فيديو، وتُستخدم في تطبيقات الرياضة والواقع المعزز."},
+
+    {en:"Cosine Similarity", ar:"تشابه جيب التمام", cat:"مفاهيم متقدمة", def:"مقياس رياضي يحدد مدى تشابه اتجاه متجهين رقميين، ويُستخدم بكثرة لمقارنة مدى تقارب معنى نصين أو صورتين."},
+    {en:"MLOps", ar:"عمليات تعلم الآلة", cat:"مفاهيم متقدمة", def:"مجموعة ممارسات هندسية تهدف إلى أتمتة ومراقبة دورة حياة نماذج تعلم الآلة، من التدريب إلى النشر والصيانة المستمرة."},
+    {en:"Model Drift", ar:"انحراف النموذج", cat:"مفاهيم متقدمة", def:"تراجع تدريجي في دقة أداء النموذج بمرور الوقت، بسبب تغيّر طبيعة البيانات الواقعية عمّا كان عليه أثناء التدريب."},
+    {en:"Quantization", ar:"التكميم", cat:"مفاهيم متقدمة", def:"تقنية تقلل دقة الأرقام المستخدمة في تمثيل أوزان النموذج، مما يصغّر حجمه ويسرّع أداءه بأقل تأثير ممكن على الجودة."},
+    {en:"Knowledge Distillation", ar:"تقطير المعرفة", cat:"مفاهيم متقدمة", def:"تقنية تدريب نموذج صغير «تلميذ» ليحاكي أداء نموذج ضخم «معلم»، للحصول على أداء قريب بحجم أصغر وسرعة أكبر."},
+    {en:"Differential Privacy", ar:"الخصوصية التفاضلية", cat:"مفاهيم متقدمة", def:"تقنية رياضية تضيف تشويشًا محسوبًا إلى البيانات أو النتائج، لحماية خصوصية الأفراد مع الحفاظ على فائدة التحليل الإحصائي العام."},
+
+    {en:"AI Watermarking", ar:"العلامة المائية الرقمية", cat:"الأخلاقيات والسلامة", def:"علامة خفية تُدمج داخل محتوى مولَّد بالذكاء الاصطناعي (صورة أو نص) لتمييزه لاحقًا كمحتوى اصطناعي وليس بشريًا."},
+    {en:"Content Moderation AI", ar:"الإشراف الآلي على المحتوى", cat:"الأخلاقيات والسلامة", def:"استخدام نماذج ذكاء اصطناعي للكشف التلقائي عن المحتوى الضار أو المخالف على المنصات الرقمية، كخطاب الكراهية أو العنف."},
+    {en:"Narrow AI", ar:"الذكاء الاصطناعي الضيق", cat:"الأخلاقيات والسلامة", def:"مستوى الذكاء الاصطناعي الحالي الذي يتفوق في مهمة أو مجال محدد فقط، ولا يمتلك فهمًا عامًا شاملًا كالإنسان."},
+    {en:"Superintelligence", ar:"الذكاء الخارق", cat:"الأخلاقيات والسلامة", def:"مستوى افتراضي مستقبلي من الذكاء الاصطناعي يتجاوز القدرات الفكرية البشرية في كل المجالات تقريبًا، وما يزال موضوعًا نظريًا وبحثيًا."}
+  ];
+  var container = document.getElementById('glossary-container');
+  var chipsWrap = document.getElementById('chips');
+  var searchInput = document.getElementById('search');
+  var emptyEl = document.getElementById('empty-state');
+  var activeCat = 'الكل';
+
+  var cats = ['الكل'];
+  DATA.forEach(function(d){ if (cats.indexOf(d.cat) === -1) cats.push(d.cat); });
+
+  document.getElementById('stat-total').textContent = DATA.length;
+  document.getElementById('stat-cats').textContent = (cats.length - 1);
+
+  cats.forEach(function(c){
+    var chip = document.createElement('span');
+    chip.className = 'chip' + (c === 'الكل' ? ' active' : '');
+    chip.textContent = c;
+    chip.addEventListener('click', function(){
+      activeCat = c;
+      chipsWrap.querySelectorAll('.chip').forEach(function(el){ el.classList.remove('active'); });
+      chip.classList.add('active');
+      render();
+      if (c !== 'الكل') {
+        var target = document.getElementById('cat-' + slugify(c));
+        if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+    chipsWrap.appendChild(chip);
+  });
+
+  function slugify(s){
+    return s.replace(/\s+/g,'-');
+  }
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(m){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+    });
+  }
+
+  function render(){
+    var q = (searchInput.value || '').trim().toLowerCase();
+    container.innerHTML = '';
+    var totalShown = 0;
+
+    var catsToRender = activeCat === 'الكل' ? cats.slice(1) : [activeCat];
+
+    catsToRender.forEach(function(cat){
+      var items = DATA.filter(function(d){
+        if (d.cat !== cat) return false;
+        if (!q) return true;
+        return d.en.toLowerCase().indexOf(q) !== -1 ||
+               d.ar.toLowerCase().indexOf(q) !== -1 ||
+               d.def.toLowerCase().indexOf(q) !== -1;
+      });
+      if (items.length === 0) return;
+      totalShown += items.length;
+
+      var section = document.createElement('section');
+      section.className = 'category-section';
+      section.id = 'cat-' + slugify(cat);
+
+      var heading = document.createElement('div');
+      heading.className = 'cat-heading';
+      heading.innerHTML =
+        '<h2>' + escapeHtml(cat) + '</h2>' +
+        '<span class="cat-count">' + items.length + ' مصطلح</span>' +
+        '<span class="cat-line"></span>';
+      section.appendChild(heading);
+
+      var grid = document.createElement('div');
+      grid.className = 'grid';
+
+      items.forEach(function(d){
+        var card = document.createElement('article');
+        card.className = 'term-card';
+        card.innerHTML =
+          '<span class="term-en">' + escapeHtml(d.en) + '</span>' +
+          '<span class="term-ar">' + escapeHtml(d.ar) + '</span>' +
+          '<p class="term-def">' + escapeHtml(d.def) + '</p>';
+        grid.appendChild(card);
+      });
+
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
+
+    emptyEl.classList.toggle('show', totalShown === 0);
+  }
+
+  searchInput.addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>
