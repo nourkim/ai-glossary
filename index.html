@@ -43,7 +43,8 @@
     font-family:var(--font-body);
     background:var(--bg1);
     color:var(--text);
-    line-height:1.8;
+    line-height:1.85;
+    font-size:17.5px;
     overflow-x:hidden;
   }
   a{color:inherit;}
@@ -215,23 +216,65 @@
   }
   .cat-line{flex:1;height:1px;background:linear-gradient(90deg,var(--card-border),transparent);}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start;}
   .term-card{
     background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
-    padding:19px 21px;position:relative;overflow:hidden;transition:.22s background,.22s border-color,.22s transform;
+    position:relative;overflow:hidden;cursor:pointer;
+    transition:.25s background,.25s border-color,.25s box-shadow;
+    -webkit-tap-highlight-color:transparent;
   }
-  .term-card:hover{background:var(--card-hover);border-color:rgba(139,107,255,0.4);transform:translateY(-2px);}
+  .term-card:hover{background:var(--card-hover);border-color:rgba(139,107,255,0.4);}
+  .term-card:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;}
+  .term-card.open{
+    background:var(--card-hover);
+    border-color:rgba(139,107,255,0.55);
+    box-shadow:0 14px 34px rgba(90,60,220,0.16);
+  }
   .term-card::before{
     content:"";position:absolute;top:0;right:0;bottom:0;width:3px;
-    background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0;transition:.2s opacity;
+    background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0;transition:.25s opacity;
   }
-  .term-card:hover::before{opacity:1;}
+  .term-card:hover::before, .term-card.open::before{opacity:1;}
+
+  .term-head{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:19px 21px;
+  }
+  .term-titles{min-width:0;flex:1;}
   .term-en{
-    display:block;font-weight:700;font-size:1.02em;color:#fff;direction:ltr;text-align:right;unicode-bidi:isolate;
+    display:block;font-weight:700;font-size:1.08em;color:#fff;direction:ltr;text-align:right;unicode-bidi:isolate;
     margin-bottom:4px;font-family:var(--font-mono);letter-spacing:-.01em;
   }
-  .term-ar{display:block;color:var(--accent2);font-weight:700;font-size:1.04em;margin-bottom:11px;}
-  .term-def{margin:0;padding-top:11px;border-top:1px dashed var(--card-border);color:var(--text-dim);font-size:.92em;line-height:1.85;}
+  .term-ar{display:block;color:var(--accent2);font-weight:700;font-size:1.12em;}
+
+  .term-toggle{
+    flex-shrink:0;width:30px;height:30px;border-radius:50%;
+    border:1px solid var(--card-border);
+    display:flex;align-items:center;justify-content:center;
+    transition:.3s transform,.25s border-color,.25s background;
+    color:var(--text-dim);
+  }
+  .term-toggle svg{width:15px;height:15px;transition:.3s transform;}
+  .term-card:hover .term-toggle{border-color:var(--accent);color:var(--text);}
+  .term-card.open .term-toggle{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    border-color:transparent;color:#0a0b14;
+    transform:rotate(180deg);
+  }
+
+  .term-def-wrap{
+    display:grid;grid-template-rows:0fr;
+    transition:grid-template-rows .38s cubic-bezier(.4,0,.2,1);
+  }
+  .term-card.open .term-def-wrap{grid-template-rows:1fr;}
+  .term-def-inner{overflow:hidden;}
+  .term-def{
+    margin:0;padding:0 21px 21px 21px;
+    color:var(--text-dim);font-size:1.03em;line-height:2;
+    border-top:1px dashed var(--card-border);
+    padding-top:15px;
+  }
+  .term-def-inner > .term-def{margin-top:0;}
 
   .empty-state{display:none;text-align:center;padding:60px 10px;color:var(--text-dim);}
   .empty-state.show{display:block;}
@@ -273,6 +316,8 @@
     html{scroll-behavior:auto;}
     .category-section{opacity:1;transform:none;transition:none;}
     .term-card{transition:none;}
+    .term-def-wrap{transition:none;}
+    .term-toggle{transition:none;}
     #back-to-top{transition:none;}
   }
 </style>
@@ -624,10 +669,28 @@
       items.forEach(function(d){
         var card = document.createElement('article');
         card.className = 'term-card';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-expanded', 'false');
         card.innerHTML =
-          '<span class="term-en">' + escapeHtml(d.en) + '</span>' +
-          '<span class="term-ar">' + escapeHtml(d.ar) + '</span>' +
-          '<p class="term-def">' + escapeHtml(d.def) + '</p>';
+          '<div class="term-head">' +
+            '<div class="term-titles">' +
+              '<span class="term-en">' + escapeHtml(d.en) + '</span>' +
+              '<span class="term-ar">' + escapeHtml(d.ar) + '</span>' +
+            '</div>' +
+            '<span class="term-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>' +
+          '</div>' +
+          '<div class="term-def-wrap"><div class="term-def-inner"><p class="term-def">' + escapeHtml(d.def) + '</p></div></div>';
+
+        function toggleCard(){
+          var isOpen = card.classList.toggle('open');
+          card.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+        card.addEventListener('click', toggleCard);
+        card.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(); }
+        });
+
         grid.appendChild(card);
       });
 
