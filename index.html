@@ -3,115 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>معجم مصطلحات الذكاء الاصطناعي | قاموس عربي تفاعلي شامل</title>
+<title>معجم مصطلحات الذكاء الاصطناعي | AI Dictionary of Terms</title>
 <meta name="description" content="معجم عربي تفاعلي وشامل يضم أكثر من 130 مصطلحا في الذكاء الاصطناعي، مع الاسم بالإنجليزية ومقابله بالعربية وتعريف مبسط لكل مصطلح، مقسم حسب التصنيفات مع خاصية بحث فورية.">
-<meta name="keywords" content="مصطلحات الذكاء الاصطناعي, قاموس الذكاء الاصطناعي, تعلم الآلة, التعلم العميق, الشبكات العصبية, معجم عربي, AI Glossary Arabic">
+<meta name="keywords" content="مصطلحات الذكاء الاصطناعي, قاموس الذكاء الاصطناعي, تعلم الآلة, التعلم العميق, الشبكات العصبية, معجم عربي, AI Glossary Arabic, AI Dictionary of Terms">
 <meta name="author" content="المدونة المنوعة بالفائدة">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="معجم مصطلحات الذكاء الاصطناعي - قاموس عربي تفاعلي شامل">
+<meta property="og:title" content="معجم مصطلحات الذكاء الاصطناعي - AI Dictionary of Terms">
 <meta property="og:description" content="أكثر من 130 مصطلحا في الذكاء الاصطناعي بالعربية والإنجليزية مع تعريف مبسط لكل مصطلح.">
+<meta property="og:image" content="hero.jpg">
 <meta property="og:locale" content="ar_AR">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="معجم مصطلحات الذكاء الاصطناعي">
 <meta name="twitter:description" content="قاموس عربي تفاعلي شامل لأكثر من 130 مصطلحا في الذكاء الاصطناعي.">
+<meta name="twitter:image" content="hero.jpg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23140f2e'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-weight='800' font-size='46' fill='%238b6bff' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --bg1:#0d0f1a; --bg2:#171233;
-    --card:rgba(255,255,255,0.045); --card-border:rgba(255,255,255,0.09); --card-hover:rgba(255,255,255,0.07);
-    --text:#ece9f7; --text-dim:#a7a3c4;
-    --accent:#8b6bff; --accent2:#22d3c9;
-    --radius:14px;
+    --bg1:#0a0b14; --bg2:#171233; --bg3:#1c1440;
+    --card:rgba(255,255,255,0.045); --card-border:rgba(255,255,255,0.09); --card-hover:rgba(255,255,255,0.075);
+    --glass:rgba(20,16,44,0.55);
+    --text:#ece9f7; --text-dim:#a7a3c4; --text-dimmer:#726d92;
+    --accent:#8b6bff; --accent2:#22d3c9; --accent-soft:rgba(139,107,255,0.12);
+    --radius:16px;
+    --font-body:'Tajawal', -apple-system, sans-serif;
+    --font-mono:'JetBrains Mono', 'Courier New', monospace;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
-    background:radial-gradient(circle at 15% 0%, var(--bg2), var(--bg1) 60%);
+    font-family:var(--font-body);
+    background:var(--bg1);
     color:var(--text);
     line-height:1.8;
+    overflow-x:hidden;
   }
   a{color:inherit;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,32px);}
+  ::selection{background:var(--accent);color:#fff;}
+
+  /* custom scrollbar */
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--bg1);}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent),var(--accent2));border-radius:99px;}
+
+  /* ===== Scroll progress ===== */
+  #progress-bar{
+    position:fixed;top:0;right:0;height:3px;width:0%;z-index:60;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    transition:width .1s linear;
+  }
 
   /* ===== Top nav ===== */
   header.site-nav{
-    position:sticky;top:0;z-index:20;
-    background:rgba(13,15,26,0.85);
-    backdrop-filter:blur(10px);
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,11,20,0.78);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid var(--card-border);
   }
   header.site-nav .wrap{
     display:flex;align-items:center;justify-content:space-between;
-    padding:14px clamp(16px,4vw,32px);gap:14px;
+    padding:13px clamp(16px,4vw,32px);gap:14px;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05em;text-decoration:none;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.02em;text-decoration:none;}
   .brand-badge{
-    width:34px;height:34px;border-radius:9px;flex-shrink:0;
+    width:32px;height:32px;border-radius:9px;flex-shrink:0;
     background:linear-gradient(135deg,var(--accent),var(--accent2));
-    display:flex;align-items:center;justify-content:center;color:#0d0f1a;font-weight:900;font-size:.8em;
+    display:flex;align-items:center;justify-content:center;color:#0a0b14;font-weight:900;font-size:.72em;
+    font-family:var(--font-mono);
   }
   .nav-link{
-    font-size:.88em;color:var(--text-dim);text-decoration:none;padding:8px 14px;border-radius:99px;
+    font-size:.86em;color:var(--text-dim);text-decoration:none;padding:8px 15px;border-radius:99px;
     border:1px solid transparent;transition:.2s all;white-space:nowrap;
   }
-  .nav-link:hover{color:var(--text);border-color:var(--card-border);}
+  .nav-link:hover{color:var(--text);border-color:var(--card-border);background:var(--card);}
 
   /* ===== Hero ===== */
-  .hero{padding:clamp(46px,8vw,84px) 0 clamp(30px,6vw,50px);}
+  .hero{
+    position:relative;
+    min-height:min(70vh, 620px);
+    display:flex;align-items:flex-end;
+    padding-top:70px;
+    background-image:
+      linear-gradient(180deg, rgba(10,11,20,0.55) 0%, rgba(10,11,20,0.72) 55%, var(--bg1) 100%),
+      radial-gradient(ellipse at 30% 20%, rgba(139,107,255,0.25), transparent 55%),
+      url('hero.jpg');
+    background-size:cover;
+    background-position:center 35%;
+    background-repeat:no-repeat;
+  }
+  .hero-inner{
+    width:100%;
+    padding-bottom:96px;
+  }
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
-    font-size:.82em;letter-spacing:.06em;color:var(--accent2);
-    background:rgba(34,211,201,0.1);border:1px solid rgba(34,211,201,0.28);
-    padding:5px 14px;border-radius:99px;margin-bottom:18px;
+    font-size:.8em;letter-spacing:.04em;color:var(--accent2);
+    background:rgba(34,211,201,0.1);border:1px solid rgba(34,211,201,0.3);
+    padding:5px 14px;border-radius:99px;margin-bottom:20px;
+    font-family:var(--font-mono);
   }
-  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2);}
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2);}
   h1.hero-title{
-    font-size:clamp(1.9em,5vw,3.1em);margin:0 0 16px 0;font-weight:800;line-height:1.3;
-    background:linear-gradient(90deg,#fff,#c9bcff 60%,var(--accent2));
+    font-size:clamp(2em,5.5vw,3.4em);margin:0 0 16px 0;font-weight:900;line-height:1.28;
+    color:#fff;
+    text-shadow:0 2px 30px rgba(0,0,0,0.4);
+  }
+  h1.hero-title em{
+    font-style:normal;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  p.hero-sub{color:var(--text-dim);max-width:70ch;font-size:clamp(1em,2.2vw,1.15em);margin:0 0 26px 0;}
+  p.hero-sub{color:var(--text-dim);max-width:62ch;font-size:clamp(1em,2vw,1.12em);margin:0;}
 
-  .hero-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
-  .stat-card{
-    background:var(--card);border:1px solid var(--card-border);border-radius:12px;
-    padding:14px 20px;min-width:120px;
+  /* ===== Floating glass search panel (overlaps hero/content boundary) ===== */
+  .panel-wrap{margin-top:-64px;position:relative;z-index:10;}
+  .glass-panel{
+    background:var(--glass);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border:1px solid var(--card-border);
+    border-radius:20px;
+    padding:20px clamp(16px,3vw,26px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.45);
   }
-  .stat-card b{display:block;font-size:1.7em;font-weight:800;
+  .hero-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+  .stat-pill{
+    display:flex;align-items:baseline;gap:6px;
+    background:rgba(255,255,255,0.04);border:1px solid var(--card-border);
+    border-radius:10px;padding:8px 16px;font-size:.85em;color:var(--text-dim);
+  }
+  .stat-pill b{
+    font-size:1.25em;font-weight:800;font-family:var(--font-mono);
     background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text;background-clip:text;color:transparent;}
-  .stat-card span{font-size:.82em;color:var(--text-dim);}
-
-  /* ===== How to use box ===== */
-  .howto{
-    background:var(--card);border:1px solid var(--card-border);border-radius:16px;
-    padding:22px 26px;margin-bottom:10px;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .howto h2{margin:0 0 10px 0;font-size:1.15em;display:flex;align-items:center;gap:8px;}
-  .howto ol{margin:0;padding-inline-start:22px;color:var(--text-dim);font-size:.95em;}
-  .howto li{margin-bottom:6px;}
 
-  /* ===== Controls (search + chips) ===== */
-  .controls{
-    position:sticky;top:65px;z-index:15;
-    background:linear-gradient(180deg, rgba(13,15,26,0.97) 78%, rgba(13,15,26,0));
-    padding:22px 0 18px 0;margin-top:26px;
-  }
-  .search-wrap{position:relative;margin-bottom:16px;}
+  .search-wrap{position:relative;margin-bottom:14px;}
   input.search{
-    width:100%;padding:15px 50px 15px 18px;border-radius:12px;
+    width:100%;padding:15px 50px 15px 18px;border-radius:13px;
     background:rgba(255,255,255,0.05);border:1px solid var(--card-border);
     color:var(--text);font-size:1.05em;outline:none;transition:.2s border-color,.2s background;
-    font-family:inherit;
+    font-family:var(--font-body);
   }
-  input.search::placeholder{color:var(--text-dim);}
-  input.search:focus{border-color:var(--accent);background:rgba(139,107,255,0.06);}
+  input.search::placeholder{color:var(--text-dimmer);}
+  input.search:focus{border-color:var(--accent);background:rgba(139,107,255,0.07);}
   .search-icon{
     position:absolute;right:18px;top:50%;transform:translateY(-50%);
     width:18px;height:18px;border:2px solid var(--text-dim);border-radius:50%;pointer-events:none;
@@ -120,22 +163,54 @@
 
   .chips{display:flex;gap:8px;flex-wrap:wrap;}
   .chip{
-    cursor:pointer;user-select:none;
-    padding:8px 16px;border-radius:99px;font-size:.85em;font-weight:600;
+    cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:6px;
+    padding:8px 15px;border-radius:99px;font-size:.83em;font-weight:600;
     border:1px solid var(--card-border);color:var(--text-dim);
-    background:var(--card);transition:.18s all;white-space:nowrap;
+    background:rgba(255,255,255,0.03);transition:.18s all;white-space:nowrap;
   }
+  .chip svg{width:14px;height:14px;flex-shrink:0;}
   .chip:hover{color:var(--text);border-color:var(--accent);}
   .chip.active{background:linear-gradient(90deg,var(--accent),#6a4bd6);color:#fff;border-color:transparent;}
 
-  /* ===== Category sections ===== */
-  .category-section{margin-top:42px;scroll-margin-top:150px;}
-  .cat-heading{
-    display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  /* ===== How to use ===== */
+  .howto{margin-top:52px;}
+  .section-label{
+    font-family:var(--font-mono);font-size:.78em;letter-spacing:.08em;color:var(--accent2);
+    margin-bottom:10px;display:block;
   }
-  .cat-heading h2{font-size:1.4em;margin:0;font-weight:800;}
+  .howto h2{margin:0 0 26px 0;font-size:clamp(1.3em,3vw,1.7em);font-weight:800;}
+  .howto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .howto-card{
+    background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+    padding:22px 20px;position:relative;
+  }
+  .howto-num{
+    font-family:var(--font-mono);font-weight:800;font-size:1.6em;
+    color:transparent;-webkit-text-stroke:1.4px rgba(139,107,255,0.5);
+    margin-bottom:10px;display:block;
+  }
+  .howto-card h3{margin:0 0 8px 0;font-size:1em;font-weight:700;color:#fff;}
+  .howto-card p{margin:0;color:var(--text-dim);font-size:.9em;line-height:1.8;}
+
+  /* ===== Category sections ===== */
+  .category-section{
+    margin-top:56px;scroll-margin-top:100px;
+    opacity:0;transform:translateY(24px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .category-section.visible{opacity:1;transform:translateY(0);}
+
+  .cat-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+  .cat-icon{
+    width:42px;height:42px;border-radius:11px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--accent-soft),rgba(34,211,201,0.1));
+    border:1px solid var(--card-border);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cat-icon svg{width:20px;height:20px;stroke:var(--accent2);}
+  .cat-heading h2{font-size:1.32em;margin:0;font-weight:800;}
   .cat-heading .cat-count{
-    font-size:.78em;color:var(--text-dim);background:var(--card);
+    font-size:.76em;color:var(--text-dim);background:var(--card);font-family:var(--font-mono);
     border:1px solid var(--card-border);padding:3px 12px;border-radius:99px;
   }
   .cat-line{flex:1;height:1px;background:linear-gradient(90deg,var(--card-border),transparent);}
@@ -143,45 +218,68 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
   .term-card{
     background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
-    padding:18px 20px;position:relative;overflow:hidden;transition:.2s background,.2s border-color;
+    padding:19px 21px;position:relative;overflow:hidden;transition:.22s background,.22s border-color,.22s transform;
   }
-  .term-card:hover{background:var(--card-hover);border-color:rgba(139,107,255,0.35);}
+  .term-card:hover{background:var(--card-hover);border-color:rgba(139,107,255,0.4);transform:translateY(-2px);}
   .term-card::before{
     content:"";position:absolute;top:0;right:0;bottom:0;width:3px;
     background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0;transition:.2s opacity;
   }
   .term-card:hover::before{opacity:1;}
-  .term-en{display:block;font-weight:800;font-size:1.08em;color:#fff;direction:ltr;text-align:right;unicode-bidi:isolate;margin-bottom:3px;}
-  .term-ar{display:block;color:var(--accent2);font-weight:700;font-size:1em;margin-bottom:10px;}
-  .term-def{margin:0;padding-top:10px;border-top:1px dashed var(--card-border);color:var(--text-dim);font-size:.93em;line-height:1.85;}
+  .term-en{
+    display:block;font-weight:700;font-size:1.02em;color:#fff;direction:ltr;text-align:right;unicode-bidi:isolate;
+    margin-bottom:4px;font-family:var(--font-mono);letter-spacing:-.01em;
+  }
+  .term-ar{display:block;color:var(--accent2);font-weight:700;font-size:1.04em;margin-bottom:11px;}
+  .term-def{margin:0;padding-top:11px;border-top:1px dashed var(--card-border);color:var(--text-dim);font-size:.92em;line-height:1.85;}
 
-  .empty-state{display:none;text-align:center;padding:50px 10px;color:var(--text-dim);}
+  .empty-state{display:none;text-align:center;padding:60px 10px;color:var(--text-dim);}
   .empty-state.show{display:block;}
 
+  /* ===== Back to top ===== */
+  #back-to-top{
+    position:fixed;bottom:26px;left:26px;z-index:40;
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(139,107,255,0.4);
+    opacity:0;pointer-events:none;transform:translateY(10px);
+    transition:.3s opacity,.3s transform;
+    border:none;cursor:pointer;
+  }
+  #back-to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+  #back-to-top svg{width:20px;height:20px;stroke:#0a0b14;}
+
   /* ===== Footer ===== */
-  footer{margin-top:70px;border-top:1px solid var(--card-border);padding:34px 0 40px;}
-  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;}
-  footer p{margin:0;color:var(--text-dim);font-size:.86em;}
-  footer a.footer-link{
-    color:var(--accent2);text-decoration:none;font-weight:600;
+  footer{margin-top:80px;border-top:1px solid var(--card-border);padding:44px 0 40px;background:rgba(255,255,255,0.015);}
+  .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-bottom:26px;}
+  .footer-brand{display:flex;align-items:center;gap:10px;font-weight:800;}
+  .footer-tagline{color:var(--text-dim);font-size:.88em;max-width:44ch;margin-top:8px;}
+  .footer-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;
+    padding-top:20px;border-top:1px solid var(--card-border);
   }
+  footer p{margin:0;color:var(--text-dimmer);font-size:.83em;}
+  footer a.footer-link{color:var(--accent2);text-decoration:none;font-weight:600;}
   footer a.footer-link:hover{text-decoration:underline;}
-  .back-top{
-    display:inline-flex;align-items:center;gap:6px;
-    color:var(--text-dim);text-decoration:none;font-size:.85em;
-    border:1px solid var(--card-border);padding:8px 16px;border-radius:99px;transition:.2s all;
-  }
-  .back-top:hover{color:var(--text);border-color:var(--accent);}
 
   @media (max-width:640px){
     .grid{grid-template-columns:1fr;}
-    .controls{top:60px;}
-    .hero-stats{gap:8px;}
-    .stat-card{padding:10px 14px;min-width:96px;}
+    .hero{min-height:64vh;}
+    .panel-wrap{margin-top:-46px;}
+    #back-to-top{width:44px;height:44px;bottom:18px;left:18px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .category-section{opacity:1;transform:none;transition:none;}
+    .term-card{transition:none;}
+    #back-to-top{transition:none;}
   }
 </style>
 </head>
 <body>
+
+<div id="progress-bar"></div>
 
 <header class="site-nav">
   <div class="wrap">
@@ -193,39 +291,54 @@
   </div>
 </header>
 
-<div class="wrap" id="top">
-  <section class="hero">
-    <span class="eyebrow">قاموس عربي تفاعلي ومجاني</span>
-    <h1 class="hero-title">معجم مصطلحات الذكاء الاصطناعي</h1>
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">AI GLOSSARY — عربي / إنجليزي</span>
+    <h1 class="hero-title">افهم لغة <em>الذكاء الاصطناعي</em><br>بمصطلحاتها الحقيقية</h1>
     <p class="hero-sub">
-      مرجع عربي شامل يجمع أهم المصطلحات المستخدمة في عالم الذكاء الاصطناعي، من الأساسيات إلى المفاهيم المتقدمة.
-      كل مصطلح مذكور باسمه الإنجليزي الأصلي مع مقابله العربي الدقيق وتعريف مبسط وواضح، ليكون هذا المعجم نقطة انطلاقك
-      لفهم أي مقال أو فيديو أو نقاش تقني حول الذكاء الاصطناعي دون حاجة للبحث المتفرق في مصادر متعددة.
+      مرجع عربي شامل يجمع أهم مصطلحات الذكاء الاصطناعي، من الأساسيات إلى المفاهيم المتقدمة —
+      كل مصطلح باسمه الإنجليزي الأصلي، مقابله العربي الدقيق، وتعريف مبسط يوضح المعنى فورًا.
     </p>
+  </div>
+</section>
 
-    <div class="hero-stats">
-      <div class="stat-card"><b id="stat-total">0</b><span>مصطلح</span></div>
-      <div class="stat-card"><b id="stat-cats">0</b><span>تصنيف رئيسي</span></div>
-      <div class="stat-card"><b>عربي / إنجليزي</b><span>لغتان معًا</span></div>
+<div class="wrap">
+  <div class="panel-wrap">
+    <div class="glass-panel">
+      <div class="hero-stats">
+        <div class="stat-pill"><b id="stat-total">0</b> مصطلح</div>
+        <div class="stat-pill"><b id="stat-cats">0</b> تصنيف رئيسي</div>
+        <div class="stat-pill"><b>2026</b> آخر تحديث</div>
+      </div>
+      <div class="search-wrap">
+        <input type="text" class="search" id="search" placeholder="ابحث عن مصطلح... مثال: Prompt أو تعلم عميق أو Token">
+        <span class="search-icon"></span>
+      </div>
+      <div class="chips" id="chips"></div>
     </div>
+  </div>
 
-    <div class="howto">
-      <h2>كيف تستخدم هذا المعجم؟</h2>
-      <ol>
-        <li>استخدم خانة البحث للعثور فورًا على أي مصطلح بالعربية أو الإنجليزية أو حتى داخل نص تعريفه.</li>
-        <li>أو اختر تصنيفًا من الشرائط أدناه للانتقال مباشرة إلى مجموعة مصطلحات مترابطة (مثل الشبكات العصبية أو النماذج التوليدية).</li>
-        <li>كل بطاقة مصطلح تعرض: الاسم الإنجليزي، المقابل العربي، ثم التعريف المبسط أسفلها مباشرة.</li>
-      </ol>
+  <section class="howto">
+    <span class="section-label">// كيف تستخدم هذا المعجم</span>
+    <h2>ثلاث خطوات فقط للوصول إلى ما تريد</h2>
+    <div class="howto-grid">
+      <div class="howto-card">
+        <span class="howto-num">01</span>
+        <h3>ابحث أو تصفح</h3>
+        <p>اكتب أي كلمة في خانة البحث، أو اختر تصنيفًا من الشرائط للانتقال إليه مباشرة.</p>
+      </div>
+      <div class="howto-card">
+        <span class="howto-num">02</span>
+        <h3>اقرأ البطاقة</h3>
+        <p>كل بطاقة تعرض الاسم الإنجليزي، ثم مقابله العربي، ثم تعريفًا مبسطًا أسفلها مباشرة.</p>
+      </div>
+      <div class="howto-card">
+        <span class="howto-num">03</span>
+        <h3>افهم واستخدم</h3>
+        <p>وظّف المصطلح بثقة في قراءاتك أو نقاشاتك التقنية حول الذكاء الاصطناعي.</p>
+      </div>
     </div>
   </section>
-
-  <div class="controls">
-    <div class="search-wrap">
-      <input type="text" class="search" id="search" placeholder="ابحث عن مصطلح... مثال: Prompt أو تعلم عميق أو Token">
-      <span class="search-icon"></span>
-    </div>
-    <div class="chips" id="chips"></div>
-  </div>
 
   <main id="glossary-container"></main>
 
@@ -234,13 +347,28 @@
 
 <footer>
   <div class="wrap">
-    <p>
-      إعداد <a class="footer-link" href="https://djabwiss.blogspot.com/" target="_blank" rel="noopener">المدونة المنوعة بالفائدة</a>
-      &mdash; معجم مفتوح ومجاني لكل من يريد فهم مصطلحات الذكاء الاصطناعي بالعربية. آخر تحديث: 2026.
-    </p>
-    <a href="#top" class="back-top">العودة للأعلى ↑</a>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-badge">AI</span>
+          <span>معجم مصطلحات الذكاء الاصطناعي</span>
+        </div>
+        <p class="footer-tagline">معجم مفتوح ومجاني لكل من يريد فهم مصطلحات الذكاء الاصطناعي بالعربية، بلا تعقيد وبلا حواجز لغوية.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        إعداد <a class="footer-link" href="https://djabwiss.blogspot.com/" target="_blank" rel="noopener">المدونة المنوعة بالفائدة</a>
+        — آخر تحديث 2026.
+      </p>
+      <a href="#top" class="nav-link">العودة للأعلى ↑</a>
+    </div>
   </div>
 </footer>
+
+<button id="back-to-top" aria-label="العودة إلى الأعلى">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <script>
 (function(){
@@ -395,6 +523,18 @@
     {en:"Narrow AI", ar:"الذكاء الاصطناعي الضيق", cat:"الأخلاقيات والسلامة", def:"مستوى الذكاء الاصطناعي الحالي الذي يتفوق في مهمة أو مجال محدد فقط، ولا يمتلك فهمًا عامًا شاملًا كالإنسان."},
     {en:"Superintelligence", ar:"الذكاء الخارق", cat:"الأخلاقيات والسلامة", def:"مستوى افتراضي مستقبلي من الذكاء الاصطناعي يتجاوز القدرات الفكرية البشرية في كل المجالات تقريبًا، وما يزال موضوعًا نظريًا وبحثيًا."}
   ];
+  var ICONS = {
+    "أساسيات": '<path d="M4 7l8-4 8 4-8 4-8-4z"/><path d="M4 7v10l8 4 8-4V7"/><path d="M12 11v10"/>',
+    "أنواع التعلم": '<path d="M6 3v6a4 4 0 0 0 4 4h4a4 4 0 0 1 4 4v4"/><circle cx="6" cy="3" r="0"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="18" r="2.4"/><circle cx="6" cy="3" r="2.4"/>',
+    "الشبكات العصبية": '<circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8 7l7-0M7.5 8l3.7 8.3M16.5 8l-3.7 8.3"/>',
+    "النماذج التوليدية": '<path d="M12 3l1.8 4.8L18.6 9.6 13.8 11.4 12 16.2 10.2 11.4 5.4 9.6 10.2 7.8z"/><path d="M19 15l.7 1.9L21.6 17.6 19.7 18.3 19 20.2 18.3 18.3 16.4 17.6 18.3 16.9z"/>',
+    "التفاعل مع النماذج": '<path d="M21 12a8 8 0 0 1-11.6 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/>',
+    "اللغة والصوت": '<path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/>',
+    "الرؤية والصور": '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>',
+    "مفاهيم متقدمة": '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
+    "الأخلاقيات والسلامة": '<path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>'
+  };
+
   var container = document.getElementById('glossary-container');
   var chipsWrap = document.getElementById('chips');
   var searchInput = document.getElementById('search');
@@ -407,10 +547,22 @@
   document.getElementById('stat-total').textContent = DATA.length;
   document.getElementById('stat-cats').textContent = (cats.length - 1);
 
+  function slugify(s){ return s.replace(/\s+/g,'-'); }
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(m){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+    });
+  }
+
   cats.forEach(function(c){
     var chip = document.createElement('span');
     chip.className = 'chip' + (c === 'الكل' ? ' active' : '');
-    chip.textContent = c;
+    if (ICONS[c]) {
+      chip.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICONS[c] + '</svg><span>' + escapeHtml(c) + '</span>';
+    } else {
+      chip.textContent = c;
+    }
     chip.addEventListener('click', function(){
       activeCat = c;
       chipsWrap.querySelectorAll('.chip').forEach(function(el){ el.classList.remove('active'); });
@@ -418,21 +570,20 @@
       render();
       if (c !== 'الكل') {
         var target = document.getElementById('cat-' + slugify(c));
-        if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        if (target) setTimeout(function(){ target.scrollIntoView({behavior:'smooth', block:'start'}); }, 30);
       }
     });
     chipsWrap.appendChild(chip);
   });
 
-  function slugify(s){
-    return s.replace(/\s+/g,'-');
-  }
-
-  function escapeHtml(s){
-    return s.replace(/[&<>"']/g, function(m){
-      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+  var observer = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
-  }
+  }, {threshold:0.08, rootMargin:'0px 0px -60px 0px'}) : null;
 
   function render(){
     var q = (searchInput.value || '').trim().toLowerCase();
@@ -456,9 +607,12 @@
       section.className = 'category-section';
       section.id = 'cat-' + slugify(cat);
 
+      var iconSvg = ICONS[cat] ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + ICONS[cat] + '</svg>' : '';
+
       var heading = document.createElement('div');
       heading.className = 'cat-heading';
       heading.innerHTML =
+        '<span class="cat-icon">' + iconSvg + '</span>' +
         '<h2>' + escapeHtml(cat) + '</h2>' +
         '<span class="cat-count">' + items.length + ' مصطلح</span>' +
         '<span class="cat-line"></span>';
@@ -479,6 +633,7 @@
 
       section.appendChild(grid);
       container.appendChild(section);
+      if (observer) observer.observe(section); else section.classList.add('visible');
     });
 
     emptyEl.classList.toggle('show', totalShown === 0);
@@ -486,6 +641,24 @@
 
   searchInput.addEventListener('input', render);
   render();
+
+  /* ===== scroll progress + back to top ===== */
+  var progressBar = document.getElementById('progress-bar');
+  var backTop = document.getElementById('back-to-top');
+  function onScroll(){
+    var doc = document.documentElement;
+    var scrollTop = doc.scrollTop || document.body.scrollTop;
+    var scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
+    var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+    if (scrollTop > 480) backTop.classList.add('show'); else backTop.classList.remove('show');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
 })();
 </script>
 </body>
